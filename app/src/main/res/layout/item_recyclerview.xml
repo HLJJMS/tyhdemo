@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:id="@+id/all"
+    >
+<TextView
+    android:background="#888888"
+    android:id="@+id/item_main"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:gravity="center"
+    />
+     <TextView
+         android:background="#106240"
+         android:textColor="#ffffff"
+        android:id="@+id/item_del"
+        android:layout_width="110dp"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>
