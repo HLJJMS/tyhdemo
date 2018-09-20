@@ -11,6 +11,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -20,11 +22,15 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class OkHttpActivity extends AppCompatActivity {
-
+    @InjectView(R.id.hundleGoodOk)
+    TextView hundleGoodOk;
     @InjectView(R.id.hundle)
     TextView hundle;
+    private Message messageOk ;
     private String url = "http://tst.zhongqizhiyun.com:8020/api/WXOnlineAppApi/A001GetPersonalInf?UserCode=CN000054";
     private Task task = new Task();
+    private ccc cc = new ccc();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,22 +38,52 @@ public class OkHttpActivity extends AppCompatActivity {
         ButterKnife.inject(this);
     }
 
-    @OnClick({R.id.hundle})
+    @OnClick({R.id.hundle,R.id.hundleGoodOk})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.hundle:
                 okhttpForHundle();
                 break;
-
+            case R.id.hundleGoodOk:
+                okhttpForHundleOk();
+                break;
         }
     }
-    private void okhttpForHundle(){
-      Thread thread = new Thread(task);
-      thread.start();
+
+    private void okhttpForHundleOk() {
+        Handler h = new xxxx();
+        messageOk=h.obtainMessage();
+        Thread thread = new Thread(cc);
+        thread.start();
     }
 
- class Task implements Runnable {
+
+    class xxxx extends  Handler{
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            hundleGoodOk.setText(msg.obj.toString());
+        }
+    }
+
+    private void okhttpForHundle() {
+        Thread thread = new Thread(task);
+        thread.start();
+    }
+    class ccc implements Runnable{
+        @Override
+        public void run() {
+            List<String> list = new ArrayList<String>();
+            list.add("asdas");
+            list.add("126323132");
+            messageOk.obj = list;
+            messageOk.sendToTarget();
+        }
+    }
+    class Task implements Runnable {
         String ok;
+
         @Override
         public void run() {
             OkHttpClient okHttpClient = new OkHttpClient();
@@ -62,15 +98,17 @@ public class OkHttpActivity extends AppCompatActivity {
             String message = j.getString("message");
             Message msg = new Message();
             msg.what = 1;
-            msg.obj=message;
+            msg.obj = message;
             handler.sendMessage(msg);
         }
-    };
-    Handler handler = new Handler(){
+    }
+
+    ;
+    Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if(msg.what==1){
+            if (msg.what == 1) {
                 hundle.setText(msg.toString());
             }
         }

@@ -18,13 +18,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.tencent.android.tpush.XGIOperateCallback;
-import com.tencent.android.tpush.XGPushBaseReceiver;
-import com.tencent.android.tpush.XGPushClickedResult;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
-import com.tencent.android.tpush.XGPushRegisterResult;
-import com.tencent.android.tpush.XGPushShowedResult;
-import com.tencent.android.tpush.XGPushTextMessage;
 import com.tencent.android.tpush.common.Constants;
 
 import java.lang.ref.WeakReference;
@@ -42,6 +37,7 @@ public class NotificationActivity extends AppCompatActivity {
     TextView xg;
     Context context;
     private Message m;
+//    private  TencentPush receiver = new TencentPush();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,7 +157,6 @@ public class NotificationActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         XGPushManager.onActivityStoped(this);
-
     }
 
 }
