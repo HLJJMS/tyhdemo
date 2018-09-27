@@ -49,40 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHo
         holder.itemDel.setText(list.get(position));
         final int delSize = holder.itemDel.getWidth();
         mScroller = new Scroller(mContext);
-        holder.all.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent e) {
-                int x = (int) e.getX();
-                int y = (int) e.getY();
-                switch (e.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
 
-                        int scrollX =  holder.item_main.getScrollX();
-
-                        int mx = moveX - x;
-                        Log.e("x",String.valueOf(x));
-                        Log.e("he",String.valueOf(x+scrollX));
-                        Log.e("scrollX",String.valueOf(scrollX));
-                        if (mx + scrollX <= 0) {
-                            holder.all.scrollTo(0, 0);
-                            return true;
-                        }
-//                        else if (scrollX+mx >= delSize) {
-//                            holder.all.scrollTo(delSize, 0);
-//                            return true;
-//                        }
-//                        else {
-                            holder.all.scrollBy(mx, 0);
-//                        }
-
-//                        break;
-                    case MotionEvent.ACTION_UP:
-                        break;
-                }
-                moveX = x;
-                return true;
-            }
-        });
     }
 
     public Boolean onTouchEvent(MotionEvent e) {

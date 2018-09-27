@@ -1,13 +1,17 @@
 package wlm.tyhkj;
 
+import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextPaint;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -21,11 +25,13 @@ import wlm.adapter.RecyclerAdapter;
  */
 
 public class RecyclerViewActivity extends AppCompatActivity {
-//
+    //
 //    @InjectView(R.id.header)
 //    RecyclerViewHeader header;
+    private TextPaint t;
     private RecyclerAdapter adapter;
     private RecyclerView recyclerView;
+    private Context context;
     private Paint p;
     private List<String> list = new ArrayList<String>();
 
@@ -35,8 +41,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recyclerview);
         ButterKnife.inject(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        p = new Paint();
-        p.setColor(this.getResources().getColor(R.color.colorAccent));
+        context = this;
         setList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
@@ -52,7 +57,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 int childCount = parent.getChildCount();
                 int left = parent.getPaddingLeft();
                 int right = parent.getWidth() - parent.getPaddingRight();
-
+                p = new Paint();
+                LinearGradient linearGradient = new LinearGradient((float) left, 0, (float) right, 0, context.getResources().getColor(R.color.colorAccent), context.getResources().getColor(R.color.colorPrimary), Shader.TileMode.MIRROR);
+                p.setShader(linearGradient);
                 for (int i = 0; i < childCount - 1; i++) {
                     View view = parent.getChildAt(i);
                     float top = view.getBottom();
@@ -64,31 +71,39 @@ public class RecyclerViewActivity extends AppCompatActivity {
             @Override
             public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
                 super.onDrawOver(c, parent, state);
-
             }
 
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
-                outRect.bottom = 5;
-
+                if (state.getItemCount() - 1 != parent.getChildLayoutPosition(view)) {
+                    outRect.bottom = 5;
+                }
             }
         });
     }
 
     private void setList() {
-        list.add("TIEM1");
-        list.add("TIEM2");
-        list.add("TIEM3");
-        list.add("TIEM4");
-        list.add("TIEM5");
-        list.add("TIEM6");
-        list.add("TIEM7");
-        list.add("TIEM8");
-        list.add("TIEM9");
-        list.add("TIEM10");
-        list.add("TIEM11");
-        list.add("TIEM12");
+        list.add("TIEM1ONE");
+        list.add("TIEM2ONE");
+        list.add("TIEM3ONE");
+        list.add("TIEM4ONE");
+        list.add("TIEM5TWO");
+        list.add("TIEM6TWO");
+        list.add("TIEM7TWO");
+        list.add("TIEM8TWO");
+        list.add("TIEM9THREE");
+        list.add("TIEM10THREE");
+        list.add("TIEM11THREE");
+        list.add("TIEM12THREE");
+        list.add("TIEM13FOUR");
+        list.add("TIEM14FOUR");
+        list.add("TIEM15FOUR");
+        list.add("TIEM16FOUR");
+        list.add("TIEM17FIVE");
+        list.add("TIEM18FIVE");
+        list.add("TIEM19FIVE");
+        list.add("TIEM20FIVE");
     }
 
 }
