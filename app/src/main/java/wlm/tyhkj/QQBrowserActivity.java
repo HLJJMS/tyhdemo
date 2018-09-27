@@ -51,6 +51,7 @@ public class QQBrowserActivity extends AppCompatActivity {
         webSettings.setUseWideViewPort(true); // 关键点
         forumContext.loadUrl("http://erp.iwenxin.net/Lecture/LectureUpLoad/1.鉴赏赏析 (Web)/index.html");
         forumContext.setWebViewClient(new WebViewClient(){
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView webView, String s) {
                 forumContext.loadUrl(s);

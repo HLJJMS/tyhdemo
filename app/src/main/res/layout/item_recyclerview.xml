@@ -4,9 +4,10 @@
     android:layout_height="70dp"
     android:orientation="horizontal"
     android:id="@+id/all"
+    android:background="@android:color/transparent"
     >
 <TextView
-    android:background="#888888"
+    android:background="#55000000"
     android:id="@+id/item_main"
     android:layout_width="match_parent"
     android:layout_height="70dp"

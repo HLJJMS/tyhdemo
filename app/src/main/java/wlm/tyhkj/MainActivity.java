@@ -220,7 +220,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         return super.onKeyDown(keyCode, event);
-
     }
 
     private void exit() {
