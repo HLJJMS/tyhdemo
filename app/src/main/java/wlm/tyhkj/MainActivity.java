@@ -27,6 +27,10 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    @InjectView(R.id.voice)
+    TextView voice;
     @InjectView(R.id.handler)
     TextView handler;
     @InjectView(R.id.UCBrowser)
@@ -43,8 +47,14 @@ public class MainActivity extends AppCompatActivity {
     TextView okhttp;
     @InjectView(R.id.Notification)
     TextView Notification;
-
-    private TextView v, recyclerView, nv, map;
+    @InjectView(R.id.viewpager)
+    TextView viewpager;
+    @InjectView(R.id.recyclerView)
+    TextView recyclerView;
+    @InjectView(R.id.nv)
+    TextView nv;
+    @InjectView(R.id.map)
+    TextView map;
     private Boolean isEnd = false;
 
     @Override
@@ -52,67 +62,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-        v = (TextView) findViewById(R.id.voice);
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5b83a52b");
-        recyclerView = (TextView) findViewById(R.id.recyclerView);
-        map = (TextView) findViewById(R.id.map);
-        nv = (TextView) findViewById(R.id.nv);
-        handler.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HandlerActivity.class);
-                startActivity(intent);
-            }
-        });
-        map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                startActivity(intent);
-            }
-        });
-        nv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DnActivity.class);
-                startActivity(intent);
-            }
-        });
-        recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
-                startActivity(intent);
-            }
-        });
-        photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
-                startActivity(intent);
-            }
-        });
-        upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FileUpLoadActivity.class);
-                startActivity(intent);
-            }
-        });
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                initSpeech(MainActivity.this);
-            }
-        });
-        okhttp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, OkHttpActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     /**
@@ -134,13 +84,11 @@ public class MainActivity extends AppCompatActivity {
                 if (!isLast) {
                     //解析语音
                     String result = parseVoice(recognizerResult.getResultString());
-                    v.setText(result);
+                    voice.setText(result);
                 }
             }
-
             @Override
             public void onError(SpeechError speechError) {
-
             }
         });
         //4.显示dialog，接收语音输入
@@ -162,30 +110,64 @@ public class MainActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
-
-    @OnClick({R.id.UCBrowser, R.id.QQBrowser,R.id.Notification})
+    @OnClick({R.id.recyclerView, R.id.voice, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.recyclerView:
+                Intent intentRecyclerView = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                startActivity(intentRecyclerView);
+                break;
+            case R.id.voice:
+                initSpeech(MainActivity.this);
+                break;
+            case R.id.nv:
+                Intent intentDn = new Intent(MainActivity.this, DnActivity.class);
+                startActivity(intentDn);
+                break;
+            case R.id.map:
+                Intent intentMap = new Intent(MainActivity.this, MapActivity.class);
+                startActivity(intentMap);
+                break;
+            case R.id.handler:
+                Intent intentHandler = new Intent(MainActivity.this, HandlerActivity.class);
+                startActivity(intentHandler);
+                break;
             case R.id.UCBrowser:
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
+                Intent intentUC = new Intent();
+                intentUC.setAction("android.intent.action.VIEW");
                 Uri content_url = Uri.parse("http://erp.iwenxin.net/Lecture/LectureUpLoad/1.鉴赏赏析 (Web)/index.html");
-                intent.setData(content_url);
+                intentUC.setData(content_url);
 //        intent.setClassName("com.uc.browser", "com.uc.browser.ActivityUpdate");
-                startActivity(intent);
+                startActivity(intentUC);
                 break;
             case R.id.QQBrowser:
-                Intent i = new Intent(MainActivity.this, QQBrowserActivity.class);
-
-                startActivity(i);
+                Intent intentUCQQ = new Intent(MainActivity.this, QQBrowserActivity.class);
+                startActivity(intentUCQQ);
+                break;
+            case R.id.webview:
+                break;
+            case R.id.photo:
+                Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.upload:
+                Intent intentFileUpLoad = new Intent(MainActivity.this, FileUpLoadActivity.class);
+                startActivity(intentFileUpLoad);
+                break;
+            case R.id.okhttp:
+                Intent intentOkHttp = new Intent(MainActivity.this, OkHttpActivity.class);
+                startActivity(intentOkHttp);
                 break;
             case R.id.Notification:
-                Intent intentNotification= new Intent(MainActivity.this, NotificationActivity.class);
-
+                Intent intentNotification = new Intent(MainActivity.this, NotificationActivity.class);
                 startActivity(intentNotification);
+                break;
+            case R.id.viewpager:
+                Intent intentViewPager = new Intent(MainActivity.this, ViewPageActivity.class);
+                startActivity(intentViewPager);
+                break;
         }
     }
-
 
 
     /**

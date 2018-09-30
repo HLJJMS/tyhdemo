@@ -22,11 +22,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class OkHttpActivity extends AppCompatActivity {
-    @InjectView(R.id.hundleGoodOk)
-    TextView hundleGoodOk;
     @InjectView(R.id.hundle)
     TextView hundle;
-    private Message messageOk ;
+    @InjectView(R.id.hundleGoodOk)
+    TextView hundleGoodOk;
+    private Message messageOk;
     private String url = "http://tst.zhongqizhiyun.com:8020/api/WXOnlineAppApi/A001GetPersonalInf?UserCode=CN000054";
     private Task task = new Task();
     private ccc cc = new ccc();
@@ -38,7 +38,7 @@ public class OkHttpActivity extends AppCompatActivity {
         ButterKnife.inject(this);
     }
 
-    @OnClick({R.id.hundle,R.id.hundleGoodOk})
+    @OnClick({R.id.hundle, R.id.hundleGoodOk})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.hundle:
@@ -52,13 +52,13 @@ public class OkHttpActivity extends AppCompatActivity {
 
     private void okhttpForHundleOk() {
         Handler h = new xxxx();
-        messageOk=h.obtainMessage();
+        messageOk = h.obtainMessage();
         Thread thread = new Thread(cc);
         thread.start();
     }
 
 
-    class xxxx extends  Handler{
+    class xxxx extends Handler {
 
         @Override
         public void handleMessage(Message msg) {
@@ -71,7 +71,8 @@ public class OkHttpActivity extends AppCompatActivity {
         Thread thread = new Thread(task);
         thread.start();
     }
-    class ccc implements Runnable{
+
+    class ccc implements Runnable {
         @Override
         public void run() {
             List<String> list = new ArrayList<String>();
@@ -81,6 +82,7 @@ public class OkHttpActivity extends AppCompatActivity {
             messageOk.sendToTarget();
         }
     }
+
     class Task implements Runnable {
         String ok;
 

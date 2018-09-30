@@ -32,21 +32,25 @@ import wlm.base.UriToFliePath;
 
 public class FileUpLoadActivity extends AppCompatActivity {
     UriToFliePath uriToFliePath = new UriToFliePath();
-    @InjectView(R.id.url)
-    TextView url;
-    @InjectView(R.id.power)
-    TextView power;
+
     Context context;
     PermissionDynamic permissionDynamic = new PermissionDynamic();
+
+
+    String path;
+    @InjectView(R.id.url)
+    TextView url;
     @InjectView(R.id.ok)
     TextView ok;
-    String path;
+    @InjectView(R.id.power)
+    TextView power;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_up_load);
         ButterKnife.inject(this);
+
         context = getApplicationContext();
         click();
     }
@@ -81,10 +85,10 @@ public class FileUpLoadActivity extends AppCompatActivity {
 
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
-                .addFormDataPart("abc","a")// multipart/form-data
+                .addFormDataPart("abc", "a")// multipart/form-data
                 .addFormDataPart(file.getName(), file.getName(), fileBody)
                 .build();
-         Request request = new Request.Builder()
+        Request request = new Request.Builder()
                 .url("http://testerp.iwenxin.net/webservice/FineClass/B002015")
                 .post(requestBody)
                 .build();

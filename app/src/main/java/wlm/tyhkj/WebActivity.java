@@ -12,6 +12,7 @@ import butterknife.InjectView;
 
 public class WebActivity extends AppCompatActivity {
 
+
     @InjectView(R.id.web)
     WebView web;
 
@@ -33,6 +34,6 @@ public class WebActivity extends AppCompatActivity {
         }
         web.getSettings().setUseWideViewPort(true);
         web.loadUrl("http://erp.iwenxin.net/Lecture/LectureUpLoad/1.鉴赏赏析 (Web)/index.html");
-       web.setWebChromeClient(new WebChromeClient());
+        web.setWebChromeClient(new WebChromeClient());
     }
 }

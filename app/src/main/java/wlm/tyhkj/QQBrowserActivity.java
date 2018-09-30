@@ -16,6 +16,7 @@ import butterknife.InjectView;
 
 public class QQBrowserActivity extends AppCompatActivity {
 
+
     @InjectView(R.id.forum_context)
     WebView forumContext;
 
@@ -45,12 +46,13 @@ public class QQBrowserActivity extends AppCompatActivity {
         });
         url();
     }
-    private void url(){
+
+    private void url() {
         WebSettings webSettings = forumContext.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUseWideViewPort(true); // 关键点
         forumContext.loadUrl("http://erp.iwenxin.net/Lecture/LectureUpLoad/1.鉴赏赏析 (Web)/index.html");
-        forumContext.setWebViewClient(new WebViewClient(){
+        forumContext.setWebViewClient(new WebViewClient() {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView webView, String s) {

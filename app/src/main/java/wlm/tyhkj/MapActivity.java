@@ -28,14 +28,14 @@ import wlm.base.PermissionDynamic;
 public class MapActivity extends AppCompatActivity {
     public LocationClient mLocationClient = null;
     private PermissionDynamic permissionDynamic = new PermissionDynamic();
-    @InjectView(R.id.button)
+
     Button button;
     RoutePlanSearch mSearch;
     private BDAbstractLocationListener myListener = new MyLocationListener();
     MapStatusUpdate u;
     //BDAbstractLocationListener为7.2版本新增的Abstract类型的监听接口
     //原有BDLocationListener接口暂时同步保留。具体介绍请参考后文第四步的说明
-    @InjectView(R.id.map)
+
     MapView map;
     private BaiduMap baiduMap;
     private MyLocationConfiguration.LocationMode locationMode;
@@ -47,6 +47,7 @@ public class MapActivity extends AppCompatActivity {
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_map);
         ButterKnife.inject(this);
+
         mSearch = RoutePlanSearch.newInstance();
         mLocationClient = new LocationClient(getApplicationContext());
         //声明LocationClient类

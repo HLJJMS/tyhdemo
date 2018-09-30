@@ -29,20 +29,24 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class NotificationActivity extends AppCompatActivity {
+
+
+    Context context;
     @InjectView(R.id.start)
     TextView start;
     @InjectView(R.id.end)
     TextView end;
     @InjectView(R.id.xg)
     TextView xg;
-    Context context;
     private Message m;
-//    private  TencentPush receiver = new TencentPush();
+
+    //    private  TencentPush receiver = new TencentPush();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         ButterKnife.inject(this);
+
         context = this;
         Handler handler = new HandlerExtension(NotificationActivity.this);
         m = handler.obtainMessage();
@@ -132,6 +136,7 @@ public class NotificationActivity extends AppCompatActivity {
         HandlerExtension(Activity activity) {
             mActivity = new WeakReference<Activity>(activity);
         }
+
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -147,6 +152,7 @@ public class NotificationActivity extends AppCompatActivity {
             // "BACKSTREET", "BOYS", System.currentTimeMillis() + 5000, 0);
         }
     }
+
     @Override
     protected void onDestroy() {
 //        unregisterReceiver(updateListViewReceiver);

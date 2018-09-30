@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
+import butterknife.InjectView;
 import wlm.adapter.RecyclerAdapter;
 
 /**
@@ -25,9 +26,9 @@ import wlm.adapter.RecyclerAdapter;
  */
 
 public class RecyclerViewActivity extends AppCompatActivity {
+
     //
-//    @InjectView(R.id.header)
-//    RecyclerViewHeader header;
+
     private TextPaint t;
     private RecyclerAdapter adapter;
     private RecyclerView recyclerView;

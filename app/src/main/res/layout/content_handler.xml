@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <TextView
         android:layout_marginTop="20dp"
-        android:id="@+id/start"
+        android:id="@+id/starthandler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="start"
@@ -13,7 +13,7 @@
         android:gravity="center"/>
     <TextView
         android:layout_marginTop="20dp"
-        android:id="@+id/end"
+        android:id="@+id/endhandler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="end"
