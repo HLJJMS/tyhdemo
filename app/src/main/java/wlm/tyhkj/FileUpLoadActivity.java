@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -137,6 +140,23 @@ public class FileUpLoadActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            int one = grantResults[0];
+            int two = grantResults[1];
+            if (one == PackageManager.PERMISSION_GRANTED && two == PackageManager.PERMISSION_GRANTED) {
+
+            }else{
+                boolean isWrite = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0]);
+                boolean isRead = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[1]);
+                if(!isWrite||!isRead){
+                    Toast.makeText(this,"无权限", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
 
 }
 

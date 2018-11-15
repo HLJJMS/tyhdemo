@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
     TextView nv;
     @InjectView(R.id.map)
     TextView map;
+    @InjectView(R.id.caijian)
+    TextView caijian;
+    @InjectView(R.id.diy_photo)
+    TextView diyPhoto;
     private Boolean isEnd = false;
 
     @Override
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     voice.setText(result);
                 }
             }
+
             @Override
             public void onError(SpeechError speechError) {
             }
@@ -110,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
         }
         return sb.toString();
     }
-    @OnClick({R.id.recyclerView, R.id.voice, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
+
+    @OnClick({R.id.diy_photo,R.id.recyclerView, R.id.voice, R.id.caijian, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.recyclerView:
@@ -165,6 +171,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.viewpager:
                 Intent intentViewPager = new Intent(MainActivity.this, ViewPageActivity.class);
                 startActivity(intentViewPager);
+                break;
+            case R.id.caijian:
+                Intent imageCorpActivity = new Intent(MainActivity.this, ImageCorpActivity.class);
+                startActivity(imageCorpActivity);
+                break;
+            case R.id.diy_photo:
+                Intent diyCaiJianActivity = new Intent(MainActivity.this, DiyCaiJianActivity.class);
+                startActivity(diyCaiJianActivity);
                 break;
         }
     }
