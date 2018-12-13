@@ -1,144 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-<LinearLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="wlm.tyhkj.MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="RecyclerView"
-        android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/voice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="语音识别"
-        android:textSize="30sp" />
+    <LinearLayout
 
-    <TextView
-        android:id="@+id/nv"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="侧滑布局"
-        android:textSize="30sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="wlm.tyhkj.MainActivity">
 
-    <TextView
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="百度地图"
-        android:textSize="30sp" />
+        <TextView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="RecyclerView"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/handler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="handler"
-        android:textSize="30sp" />
+        <TextView
+            android:id="@+id/voice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="语音识别"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/UCBrowser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="打开浏览器"
-        android:textSize="30sp" />
-    <TextView
-        android:id="@+id/QQBrowser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="打开QQ浏览器内核"
-        android:textSize="30sp" />
-    <TextView
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="webview"
-        android:textSize="30sp" />
-    <TextView
-        android:id="@+id/photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="图片加载"
-        android:textSize="30sp" />
-    <TextView
-        android:id="@+id/upload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="文件上传之Uri转URL(6.0动态载入权限)"
-        android:textSize="30sp" />
-    <TextView
-        android:id="@+id/okhttp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="网络请求"
-        android:textSize="30sp" />
-    <TextView
-        android:id="@+id/Notification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Notification"
-        android:textSize="30sp" />
-    <TextView
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="viewpager"
-        android:textSize="30sp" />
-    <TextView
-    android:id="@+id/caijian"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:gravity="center"
-    android:text="图片裁剪"
-    android:textSize="30sp" />
-    <TextView
-        android:id="@+id/diy_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="图片裁剪DIY"
-        android:textSize="30sp" />
+        <TextView
+            android:id="@+id/nv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="侧滑布局"
+            android:textSize="30sp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="百度地图"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/handler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="handler"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/UCBrowser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="打开浏览器"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/QQBrowser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="打开QQ浏览器内核"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="webview"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="图片加载"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="文件上传之Uri转URL(6.0动态载入权限)"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/okhttp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="网络请求"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/Notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Notification"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="viewpager"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/caijian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="图片裁剪"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/diy_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="图片裁剪DIY"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/smartTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="smartTable"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/diy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="自定义布局测试"
+            android:textSize="30sp" />
+
+    </LinearLayout>
 </ScrollView>

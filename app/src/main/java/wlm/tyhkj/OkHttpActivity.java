@@ -1,5 +1,6 @@
 package wlm.tyhkj;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +18,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -26,6 +28,8 @@ public class OkHttpActivity extends AppCompatActivity {
     TextView hundle;
     @InjectView(R.id.hundleGoodOk)
     TextView hundleGoodOk;
+    @InjectView(R.id.post)
+    TextView post;
     private Message messageOk;
     private String url = "http://tst.zhongqizhiyun.com:8020/api/WXOnlineAppApi/A001GetPersonalInf?UserCode=CN000054";
     private Task task = new Task();
@@ -55,6 +59,16 @@ public class OkHttpActivity extends AppCompatActivity {
         messageOk = h.obtainMessage();
         Thread thread = new Thread(cc);
         thread.start();
+    }
+
+    @OnClick(R.id.post)
+    public void onViewClicked() {
+        post();
+    }
+
+    private void post() {
+        PostOkhttp postOkhttp =new PostOkhttp();
+        postOkhttp.execute();
     }
 
 
@@ -115,4 +129,27 @@ public class OkHttpActivity extends AppCompatActivity {
             }
         }
     };
+    class PostOkhttp extends AsyncTask<Void,Void,String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String s= "";
+            OkHttpClient okHttpClient = new OkHttpClient();
+            FormBody formBody =  new FormBody.Builder().add("companyid","10008").build();
+            Request request = new Request.Builder().url("https://www.yunerpoa.com/api/publicnumberapi/GetTeacherData?").post(formBody).build();
+            try {
+                Response response= okHttpClient.newCall(request).execute();
+                s = response.body().string();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return s;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            post.setText(s);
+        }
+    }
 }

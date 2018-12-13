@@ -8,7 +8,7 @@ android {
     defaultConfig {
         applicationId "wlm.tyhkj"
 //        applicationId "com.tyh.tyhkj"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "2"
@@ -72,4 +72,7 @@ dependencies {
     implementation 'com.jakewharton:butterknife:5.1.1'
     implementation 'com.github.goweii:CropImageView:v1.1.0'
     implementation 'com.edmodo:cropper:1.0.1'
+    implementation 'com.github.huangyanbin:SmartTable:2.2.0'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+
 }

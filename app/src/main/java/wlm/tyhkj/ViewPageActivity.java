@@ -1,5 +1,9 @@
 package wlm.tyhkj;
 
+import android.graphics.RectF;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -22,7 +26,7 @@ public class ViewPageActivity extends AppCompatActivity {
     ViewPager viewpage;
     @InjectView(R.id.point)
     LinearLayout point;
-    private ImageView photo1, photo2, photo3, photo4, photo5,pointImg;
+    private ImageView photo1, photo2, photo3, photo4, photo5, pointImg;
     private View view1, view2, view3;
     private List<ImageView> imgList = new ArrayList<ImageView>();
     private List<View> list = new ArrayList<View>();
@@ -65,8 +69,8 @@ public class ViewPageActivity extends AppCompatActivity {
 
     private void AddPoint() {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(50, 20);
-        params.leftMargin=10;
-        for(int i = 0;i<imgList.size();i++){
+        params.leftMargin = 10;
+        for (int i = 0; i < imgList.size(); i++) {
             ImageView img = new ImageView(this);
             img.setImageResource(R.drawable.shape_point_selector);
             img.setLayoutParams(params);
@@ -77,14 +81,15 @@ public class ViewPageActivity extends AppCompatActivity {
     private void HandlerFunction() {
         handler.post(new Runnable() {
             int i = 0;
+
             @Override
             public void run() {
                 if (viewpage.getCurrentItem() == imgList.size() - 1) {
                     viewpage.setCurrentItem(0);
-                     i = imgList.size() - 1;
+                    i = imgList.size() - 1;
                 } else {
                     viewpage.setCurrentItem(viewpage.getCurrentItem() + 1);
-                     i = viewpage.getCurrentItem() -1;
+                    i = viewpage.getCurrentItem() - 1;
                 }
                 point.getChildAt(i).setSelected(false);
                 point.getChildAt(viewpage.getCurrentItem()).setSelected(true);
@@ -113,12 +118,12 @@ public class ViewPageActivity extends AppCompatActivity {
     }
 
     private void viewXml(LayoutInflater layoutInflater) {
-        view1 = layoutInflater.inflate(R.layout.viewpager1, null);
-        view2 = layoutInflater.inflate(R.layout.viewpager2, null);
-        view3 = layoutInflater.inflate(R.layout.viewpager3, null);
-        list.add(view1);
-        list.add(view2);
-        list.add(view3);
+//        view1 = layoutInflater.inflate(R.layout.viewpager1, null);
+//        view2 = layoutInflater.inflate(R.layout.viewpager2, null);
+//        view3 = layoutInflater.inflate(R.layout.viewpager3, null);
+//        list.add(view1);
+//        list.add(view2);
+//        list.add(view3);
     }
 
 

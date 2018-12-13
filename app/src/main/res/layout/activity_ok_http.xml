@@ -22,5 +22,9 @@
         android:gravity="center"
         android:text="hundle推荐"
         android:textSize="30sp" />
-
+    <TextView
+        android:id="@+id/post"
+        android:text="POST请求"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

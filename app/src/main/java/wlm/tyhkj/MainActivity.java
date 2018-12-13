@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
     TextView caijian;
     @InjectView(R.id.diy_photo)
     TextView diyPhoto;
+    @InjectView(R.id.smartTable)
+    TextView smartTable;
+    @InjectView(R.id.diy)
+    TextView diy;
     private Boolean isEnd = false;
 
     @Override
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         return sb.toString();
     }
 
-    @OnClick({R.id.diy_photo,R.id.recyclerView, R.id.voice, R.id.caijian, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
+    @OnClick({R.id.smartTable,R.id.diy, R.id.diy_photo, R.id.recyclerView, R.id.voice, R.id.caijian, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.recyclerView:
@@ -180,6 +184,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent diyCaiJianActivity = new Intent(MainActivity.this, DiyCaiJianActivity.class);
                 startActivity(diyCaiJianActivity);
                 break;
+            case R.id.smartTable:
+                Intent formActivity = new Intent(MainActivity.this, FormActivity.class);
+                startActivity(formActivity);
+                break;
+            case R.id.diy:
+                Intent diyViewActivity = new Intent(MainActivity.this, DiyViewActivity.class);
+                startActivity(diyViewActivity);
+                break;
         }
     }
 
@@ -228,4 +240,6 @@ public class MainActivity extends AppCompatActivity {
             h.sendEmptyMessageDelayed(1, 2000);
         }
     }
+
+
 }
