@@ -2,6 +2,8 @@ package wlm.tyhkj;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.google.gson.Gson;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
@@ -63,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
     TextView smartTable;
     @InjectView(R.id.diy)
     TextView diy;
+    @InjectView(R.id.pie_view)
+    TextView pieView;
+    @InjectView(R.id.cut_view)
+    TextView cutView;
+    @InjectView(R.id.db)
+    TextView db;
     private Boolean isEnd = false;
 
     @Override
@@ -70,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5b83a52b");
     }
 
@@ -110,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
     public String parseVoice(String resultString) {
         Gson gson = new Gson();
         Voice voiceBean = gson.fromJson(resultString, Voice.class);
-
         StringBuffer sb = new StringBuffer();
         ArrayList<Voice.WSBean> ws = voiceBean.ws;
         for (Voice.WSBean wsBean : ws) {
@@ -120,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         return sb.toString();
     }
 
-    @OnClick({R.id.smartTable,R.id.diy, R.id.diy_photo, R.id.recyclerView, R.id.voice, R.id.caijian, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
+    @OnClick({R.id.db,R.id.cut_view, R.id.pie_view, R.id.smartTable, R.id.diy, R.id.diy_photo, R.id.recyclerView, R.id.voice, R.id.caijian, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.recyclerView:
@@ -191,6 +200,19 @@ public class MainActivity extends AppCompatActivity {
             case R.id.diy:
                 Intent diyViewActivity = new Intent(MainActivity.this, DiyViewActivity.class);
                 startActivity(diyViewActivity);
+                break;
+            case R.id.pie_view:
+                Intent pieViewActivity = new Intent(MainActivity.this, PieViewActivity.class);
+                startActivity(pieViewActivity);
+                break;
+            case R.id.cut_view:
+                Intent cutViewActivity = new Intent(MainActivity.this, CutHeadActivity.class);
+                startActivity(cutViewActivity);
+                break;
+
+            case R.id.db:
+                Intent sqlActivity = new Intent(MainActivity.this, SqlActivity.class);
+                startActivity(sqlActivity);
                 break;
         }
     }
