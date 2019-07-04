@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         return sb.toString();
     }
 
-    @OnClick({R.id.realm,R.id.db,R.id.cut_view, R.id.pie_view, R.id.smartTable, R.id.diy, R.id.diy_photo, R.id.recyclerView, R.id.voice, R.id.caijian, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
+    @OnClick({R.id.bigLoad,R.id.realm,R.id.db,R.id.cut_view, R.id.pie_view, R.id.smartTable, R.id.diy, R.id.diy_photo, R.id.recyclerView, R.id.voice, R.id.caijian, R.id.nv, R.id.map, R.id.handler, R.id.UCBrowser, R.id.QQBrowser, R.id.webview, R.id.photo, R.id.upload, R.id.okhttp, R.id.Notification, R.id.viewpager})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.recyclerView:
@@ -217,6 +217,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.realm:
                 startActivity( new Intent(this, RealmActivity.class));
+                break;
+            case R.id.bigLoad:
+                startActivity( new Intent(this, DownLoadBigFileActivity.class));
                 break;
         }
     }

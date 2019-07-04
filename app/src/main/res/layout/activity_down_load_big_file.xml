@@ -4,18 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PieViewActivity">
-<wlm.diyview.PieView
-    android:background="@color/colorAccent"
-    android:padding="10dp"
-    android:id="@+id/pie_view"
-    app:text="阿萨德"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:ignore="MissingConstraints" />
-    <wlm.diyview.DragView
+    tools:context=".DownLoadBigFileActivity">
 
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+
+    <TextView
+        android:id="@+id/txt"
+        android:textSize="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         tools:ignore="MissingConstraints" />
+
 </android.support.constraint.ConstraintLayout>
