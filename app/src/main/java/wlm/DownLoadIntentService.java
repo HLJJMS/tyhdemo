@@ -6,8 +6,10 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 
 import java.io.BufferedOutputStream;
@@ -25,6 +27,8 @@ import retrofit2.Response;
 import wlm.base.retrofit.InterfaceForRetrofit;
 import wlm.tyhkj.R;
 
+import static java.util.concurrent.Executors.*;
+
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -37,7 +41,7 @@ public class DownLoadIntentService extends IntentService {
     InterfaceForRetrofit service;
     String testName = "name.jpeg";
     File file;
-    String url = "http://bos.pgzs.com/wscdn/assistant/wyx/pc/91assistant_pc_v6_1_201904121018111.exe";
+    String url = "https://qmuiteam.com/download/android/qmui_1.2.0.apk";
     Notification.Builder mProgressBuilder;
     static NotificationManager mNotificationManager;
     boolean isFristTime = true;
@@ -60,12 +64,12 @@ public class DownLoadIntentService extends IntentService {
         retrofit = new retrofit2.Retrofit.Builder()
                 .baseUrl("http://www.xxx.com")
                 //通过线程池获取一个线程，指定callback在子线程中运行。
-                .callbackExecutor(Executors.newSingleThreadExecutor())
+                .callbackExecutor(newSingleThreadExecutor())
                 .build();
         service = retrofit.create(InterfaceForRetrofit.class);
         testName = url.substring(url.lastIndexOf("/")).split("/")[1];//不带"/"
         Log.e("文件名称", testName);
-        file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + testName);
+        file = new File(Environment.getExternalStorageDirectory()  + "/test.apk");
 
     }
 
@@ -107,15 +111,6 @@ public class DownLoadIntentService extends IntentService {
             });
 
         }
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -162,6 +157,8 @@ public class DownLoadIntentService extends IntentService {
                     mNotificationManager.notify(1,mProgressBuilder.build());
                 }
             }
+            setUp();
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -185,5 +182,23 @@ public class DownLoadIntentService extends IntentService {
     public void onDestroy() {
         super.onDestroy();
         Log.e("我结束了","我结束了");
+    }
+
+    void setUp(){//这是我的文件路径，各自根据自己的写
+        if(Build.VERSION.SDK_INT>=24) {//判读版本是否在7.0以上
+            Uri apkUri = FileProvider.getUriForFile(this, "fileprovider"
+                    , file);//在AndroidManifest中的android:authorities值
+            Intent install = new Intent(Intent.ACTION_VIEW);
+            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            install.setDataAndType(apkUri, "application/vnd.android.package-archive");
+            startActivity(install);
+//             <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />加入到androidmanifest里
+        } else{
+            Intent install = new Intent(Intent.ACTION_VIEW);
+            install.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(install);
+        }
     }
 }
