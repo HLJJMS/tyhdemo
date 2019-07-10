@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "wlm.tyhkj"
 //        applicationId "com.tyh.tyhkj"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
         versionName "2"
@@ -22,6 +22,13 @@ android {
             annotationProcessorOptions {
                 includeCompileClasspath true
             }
+        }
+        compileOptions {
+
+            sourceCompatibility JavaVersion.VERSION_1_8
+
+            targetCompatibility JavaVersion.VERSION_1_8
+
         }
         ndk {
             //选择要添加的对应cpu类型的.so库。
@@ -90,4 +97,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+    implementation 'cn.jzvd:jiaozivideoplayer:7.0.4'
 }

@@ -1,0 +1,2 @@
+gradlew -q app:dependencies
+该命令的查看依赖包版本号以符合性依赖包下属关系
