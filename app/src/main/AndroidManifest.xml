@@ -47,7 +47,9 @@
         <activity android:name=".SqlActivity" />
         <activity android:name=".CutHeadActivity" />
         <activity android:name=".PieViewActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"  android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

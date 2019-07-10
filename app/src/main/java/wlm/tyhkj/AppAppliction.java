@@ -7,10 +7,13 @@ import android.graphics.Color;
 
 import com.githang.statusbar.StatusBarCompat;
 
+import wlm.base.QMUISwipeBackActivityManager;
+
 public class AppAppliction extends Application {
     Context context;
     @Override
     public void onCreate() {
         super.onCreate();
+
     }
 }
