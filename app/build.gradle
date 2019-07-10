@@ -99,4 +99,15 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     implementation 'cn.jzvd:jiaozivideoplayer:7.0.4'
+
+
+
+//    下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-13'
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//    recyclerviewAdapter
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+//   textview第三方一大块很实用
+    implementation 'com.github.lygttpod:SuperTextView:2.0.0'
 }
