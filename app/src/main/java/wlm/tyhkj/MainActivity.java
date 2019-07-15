@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         context = this;
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         aboutBanner();
         aboutRecycler();
     }
@@ -62,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("REALM数据库", RealmActivity.class));
         list.add(new MainBean("retrofit下载（log打印进度）", DownLoadBigFileActivity.class));
         list.add(new MainBean("饺子视频播放", JiaoZiPlayerActivity.class));
-
+        list.add(new MainBean("换xml的recycle", ZqzyListActivity.class));
+        list.add(new MainBean("换xml的recycle(baserecyclerviewhelper)", CommentActivity.class));
         adapter = new MainAdapter(R.layout.item_main, list, context);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);

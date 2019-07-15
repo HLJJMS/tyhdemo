@@ -49,7 +49,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHo
         holder.itemDel.setText(list.get(position));
         final int delSize = holder.itemDel.getWidth();
         mScroller = new Scroller(mContext);
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list.remove(position);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     public Boolean onTouchEvent(MotionEvent e) {
@@ -74,6 +80,4 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHo
             all = (LinearLayout) itemView.findViewById(R.id.all);
         }
     }
-
-
 }
