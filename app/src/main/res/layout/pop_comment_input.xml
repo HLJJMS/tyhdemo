@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints">
+
+    <EditText
+
+        android:focusableInTouchMode="true"
+        android:focusable="auto"
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/conner_border_gray"
+        android:gravity="top"
+        android:hint="小提示：评论将由小编筛选后对所有人可见~"
+        android:padding="3dp"
+        android:minLines="4"
+        app:layout_constraintBottom_toTopOf="@id/number"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="300"
+        android:textColor="#666666"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/input"
+        app:layout_constraintTop_toBottomOf="@id/input" />
+    <TextView
+        android:text="/300"
+        android:textColor="#666666"
+        app:layout_constraintTop_toTopOf="@id/number"
+        app:layout_constraintBottom_toBottomOf="@id/number"
+        app:layout_constraintLeft_toRightOf="@id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp" />
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryDark"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="确认"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/number"
+        app:layout_constraintRight_toRightOf="@id/input"
+        app:qmui_backgroundColor="@color/colorPrimary"
+        app:qmui_radius="20dp" />
+
+</android.support.constraint.ConstraintLayout>
