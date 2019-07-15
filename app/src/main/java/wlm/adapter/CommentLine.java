@@ -13,6 +13,10 @@ public class CommentLine extends RecyclerView.ItemDecoration {
         super.onDraw(c, parent, state);
     }
 
+    @Override
+    public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.onDrawOver(c, parent, state);
+    }
 
     @Override
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
