@@ -110,10 +110,12 @@ dependencies {
 //   textview第三方一大块很实用
     implementation 'com.github.lygttpod:SuperTextView:2.0.0'
 
-
 //    QMUI
     implementation 'com.qmuiteam:qmui:1.2.0'
 
 //轮播图
     implementation 'com.youth.banner:banner:1.4.10'
+
+    // 选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
 }
