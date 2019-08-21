@@ -12,5 +12,6 @@ public interface InterfaceForRetrofit {
     @Streaming
     @GET
     Call<ResponseBody> downLoad(@Url String url);
-
+    @GET
+    Call<ResponseBody> test(@Url String url);
 }
