@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("换xml的recycle", ZqzyListActivity.class));
         list.add(new MainBean("换xml的recycle(baserecyclerviewhelper)", CommentActivity.class));
         list.add(new MainBean("Retrofit网络请求和Android原生网络请求", RetrofitAndUrlConnectionActivity.class));
+        list.add(new MainBean("线程池", ThreadPoolExecutorActivity.class));
         adapter = new MainAdapter(R.layout.item_main, list, context);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
