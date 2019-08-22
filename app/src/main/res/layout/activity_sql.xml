@@ -1,21 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SqlActivity">
+    tools:context=".SqlActivity"
+    tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="372dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/qmui_config_color_blue"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/add"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="插入" />
+        android:layout_marginTop="20dp"
+        android:background="@color/qmui_config_color_red"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="插入"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result"
+        app:layout_constraintStart_toStartOf="@+id/tv_result"
+        app:layout_constraintTop_toBottomOf="@id/tv_result" />
 
     <TextView
         android:id="@+id/read"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="读取" />
+        android:layout_marginTop="20dp"
+        android:background="@color/btn_ghost_blue_text_pressed"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="读取"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result"
+        app:layout_constraintStart_toStartOf="@+id/add"
+        app:layout_constraintTop_toBottomOf="@+id/add" />
 
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_updata"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:text="更新data"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result"
+        app:layout_constraintStart_toStartOf="@+id/add"
+        app:layout_constraintTop_toBottomOf="@+id/read" />
+
+    <TextView
+        android:id="@+id/tv_deldata"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/qmui_config_color_separator"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="删除数据"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result"
+        app:layout_constraintStart_toStartOf="@+id/add"
+        app:layout_constraintTop_toBottomOf="@+id/tv_updata" />
+</android.support.constraint.ConstraintLayout>
