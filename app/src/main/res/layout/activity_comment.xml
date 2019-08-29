@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".CommentActivity">
 <TextView
-    android:text="精选评7论"
+    android:text="精选评0007论"
     android:textSize="20sp"
     android:padding="20dp"
     android:id="@+id/title"
