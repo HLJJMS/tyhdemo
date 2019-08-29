@@ -33,8 +33,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ThreadPoolExecutorActivity"></activity>
-        <activity android:name=".RetrofitAndUrlConnectionActivity"></activity>
+        <activity android:name=".FlowLayoutActivity"></activity>
+        <activity android:name=".ThreadPoolExecutorActivity" />
+        <activity android:name=".RetrofitAndUrlConnectionActivity" />
         <activity android:name=".PickViewActivity" />
         <activity android:name=".CommentActivity" />
         <activity android:name=".ZqzyListActivity" />
