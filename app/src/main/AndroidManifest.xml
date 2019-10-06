@@ -33,7 +33,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FlowLayoutActivity"></activity>
+        <activity android:name=".InputFilterActivity"></activity>
+        <activity android:name=".FlowLayoutActivity" />
         <activity android:name=".ThreadPoolExecutorActivity" />
         <activity android:name=".RetrofitAndUrlConnectionActivity" />
         <activity android:name=".PickViewActivity" />
