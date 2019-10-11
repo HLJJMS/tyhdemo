@@ -37,13 +37,12 @@ public class WebActivity extends AppCompatActivity {
         webSettings.setDomStorageEnabled(true);
         // 应用可以有数据库
         webSettings.setDatabaseEnabled(true);
-        String dbPath =this.getApplicationContext().getDir("database", Context.MODE_PRIVATE).getPath();
+        String dbPath = this.getApplicationContext().getDir("database", Context.MODE_PRIVATE).getPath();
         webSettings.setDatabasePath(dbPath);
         // 应用可以有缓存
         webSettings.setAppCacheEnabled(true);
-        String appCaceDir =this.getApplicationContext().getDir("cache", Context.MODE_PRIVATE).getPath();
+        String appCaceDir = this.getApplicationContext().getDir("cache", Context.MODE_PRIVATE).getPath();
         webSettings.setAppCachePath(appCaceDir);
-
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -63,9 +62,6 @@ public class WebActivity extends AppCompatActivity {
     }
 
 
-
-
-
     private static boolean isWifi(Context mContext) {
         ConnectivityManager connectivityManager = (ConnectivityManager) mContext
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -76,7 +72,6 @@ public class WebActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
 
 }

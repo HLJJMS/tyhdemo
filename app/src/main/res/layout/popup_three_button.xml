@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="#61000000"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:orientation="vertical">
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/customer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="17dp"
+        android:paddingBottom="15dp"
+        android:text="在线联系客服"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:qmui_backgroundColor="@color/white"
+        app:qmui_radiusTopLeft="14dp"
+        app:qmui_radiusTopRight="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#eaeaea" />
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="17dp"
+        android:paddingBottom="15dp"
+        android:text="拨打电话："
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:qmui_backgroundColor="@color/white"
+        app:qmui_radiusBottomLeft="14dp"
+        app:qmui_radiusBottomRight="14dp" />
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:qmui_radius="14dp"
+        android:paddingTop="17dp"
+        android:paddingBottom="15dp"
+        android:text="取消"
+        android:textColor="@color/colorAccent"
+        android:textSize="18dp"
+
+        app:qmui_backgroundColor="@color/white" />
+</LinearLayout>

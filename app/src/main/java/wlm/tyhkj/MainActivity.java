@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void aboutRecycler() {
+
         list.add(new MainBean("RecyclerView老版本", RecyclerViewActivity.class));
         list.add(new MainBean("Android原生侧滑布局", DnActivity.class));
         list.add(new MainBean("百度地图", MapActivity.class));
