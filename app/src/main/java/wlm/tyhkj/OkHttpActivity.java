@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -22,6 +23,7 @@ import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import wlm.diyview.DonwTimerView;
 
 public class OkHttpActivity extends AppCompatActivity {
     @InjectView(R.id.hundle)
@@ -30,6 +32,8 @@ public class OkHttpActivity extends AppCompatActivity {
     TextView hundleGoodOk;
     @InjectView(R.id.post)
     TextView post;
+    @InjectView(R.id.click)
+    DonwTimerView click;
     private Message messageOk;
     private String url = "http://tst.zhongqizhiyun.com:8020/api/WXOnlineAppApi/A001GetPersonalInf?UserCode=CN000054";
     private Task task = new Task();
@@ -40,9 +44,10 @@ public class OkHttpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ok_http);
         ButterKnife.inject(this);
+        click.setTimeTotalAndTimeSpace(120,1000);
     }
 
-    @OnClick({R.id.hundle, R.id.hundleGoodOk})
+    @OnClick({R.id.hundle, R.id.hundleGoodOk,R.id.click})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.hundle:
@@ -50,6 +55,9 @@ public class OkHttpActivity extends AppCompatActivity {
                 break;
             case R.id.hundleGoodOk:
                 okhttpForHundleOk();
+                break;
+            case R.id.click:
+                Toast.makeText(this,"点击陈本公告",Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -67,7 +75,7 @@ public class OkHttpActivity extends AppCompatActivity {
     }
 
     private void post() {
-        PostOkhttp postOkhttp =new PostOkhttp();
+        PostOkhttp postOkhttp = new PostOkhttp();
         postOkhttp.execute();
     }
 
@@ -129,16 +137,17 @@ public class OkHttpActivity extends AppCompatActivity {
             }
         }
     };
-    class PostOkhttp extends AsyncTask<Void,Void,String>{
+
+    class PostOkhttp extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String s= "";
+            String s = "";
             OkHttpClient okHttpClient = new OkHttpClient();
-            FormBody formBody =  new FormBody.Builder().add("companyid","10008").build();
+            FormBody formBody = new FormBody.Builder().add("companyid", "10008").build();
             Request request = new Request.Builder().url("https://www.yunerpoa.com/api/publicnumberapi/GetTeacherData?").post(formBody).build();
             try {
-                Response response= okHttpClient.newCall(request).execute();
+                Response response = okHttpClient.newCall(request).execute();
                 s = response.body().string();
             } catch (IOException e) {
                 e.printStackTrace();

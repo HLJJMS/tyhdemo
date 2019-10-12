@@ -22,6 +22,10 @@
     <declare-styleable name="TextDiy">
         <attr name="ok" format="dimension"></attr>
     </declare-styleable>
+    <declare-styleable name="DonwTimerView">
+        <attr name="timeTotal" format="integer"></attr>
+        <attr name="timeSpace" format="integer"></attr>
+    </declare-styleable>
 
     <style name="popwindow_anim_style">
         <item name="android:windowEnterAnimation">@anim/popwindow_down</item>
