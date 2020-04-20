@@ -2,9 +2,11 @@ package wlm.tyhkj;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bin.david.form.core.SmartTable;

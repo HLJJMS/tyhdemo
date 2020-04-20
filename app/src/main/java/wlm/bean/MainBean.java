@@ -1,6 +1,6 @@
 package wlm.bean;
 
-import android.support.v7.app.AppCompatActivity;
+
 
 public class MainBean{
     public MainBean(String txt,   Class<?> cls) {

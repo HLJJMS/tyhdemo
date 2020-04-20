@@ -2,10 +2,12 @@ package wlm.diyview;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 /**
  * Created by wlm on 2018/9/21.

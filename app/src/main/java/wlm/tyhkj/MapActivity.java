@@ -1,9 +1,11 @@
 package wlm.tyhkj;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;

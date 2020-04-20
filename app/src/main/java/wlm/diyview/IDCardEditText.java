@@ -5,9 +5,11 @@ import android.text.InputFilter;
 import android.text.Spanned;
 import android.util.AttributeSet;
 
+import androidx.appcompat.widget.AppCompatEditText;
+
 import java.util.regex.Pattern;
 
-public class IDCardEditText extends android.support.v7.widget.AppCompatEditText {
+public class IDCardEditText extends AppCompatEditText {
     Pattern number;
     Pattern endNumber;
 

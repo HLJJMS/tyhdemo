@@ -6,9 +6,11 @@ import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import androidx.appcompat.widget.AppCompatTextView;
+
 import wlm.tyhkj.R;
 
-public class DonwTimerView extends android.support.v7.widget.AppCompatTextView {
+public class DonwTimerView extends AppCompatTextView {
     private int timeTotal = 60;
     private int timeSpace = 1000;
     private boolean clickable = true;

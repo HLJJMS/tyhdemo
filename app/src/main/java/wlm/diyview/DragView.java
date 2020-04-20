@@ -1,13 +1,15 @@
 package wlm.diyview;
 
 import android.content.Context;
-import android.support.design.widget.FloatingActionButton;
+
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DragView extends FloatingActionButton {
 

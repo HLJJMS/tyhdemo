@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:ignore="MissingConstraints"
     xmlns:tools="http://schemas.android.com/tools"
@@ -15,7 +15,7 @@
     android:layout_height="wrap_content"
     />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintBottom_toTopOf="@id/input_txt"
         android:id="@+id/recycler"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
     <TextView
         android:background="@drawable/conner_bg"
         android:drawableLeft="@mipmap/ic_launcher"
@@ -69,4 +69,4 @@
         android:id="@+id/txt_good_int"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

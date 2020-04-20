@@ -1,7 +1,9 @@
 package wlm.tyhkj;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DiyViewActivity extends AppCompatActivity {
 

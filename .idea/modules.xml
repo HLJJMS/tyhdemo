@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidYouZhi-tyhdemo.iml" filepath="$PROJECT_DIR$/AndroidYouZhi-tyhdemo.iml" group="tyhdemo" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_box-tyhdemo.iml" filepath="$PROJECT_DIR$/project_box-tyhdemo.iml" group="tyhdemo" />
+      <module fileurl="file://$PROJECT_DIR$/app/project_box-tyhdemo-app.iml" filepath="$PROJECT_DIR$/app/project_box-tyhdemo-app.iml" group="tyhdemo/app" />
       <module fileurl="file://$PROJECT_DIR$/tyhdemo.iml" filepath="$PROJECT_DIR$/tyhdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/tyhdemo-app.iml" filepath="$PROJECT_DIR$/app/tyhdemo-app.iml" group="tyhdemo/app" />
     </modules>

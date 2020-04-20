@@ -1,7 +1,9 @@
 package wlm.adapter;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+
+
+import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -15,7 +17,7 @@ import wlm.tyhkj.R;
 
 public class MainAdapter extends BaseQuickAdapter<MainBean , BaseViewHolder> {
     Reference<Context> contextReference ;
-    public MainAdapter(int layoutResId, @Nullable List<MainBean> data ,Context context) {
+    public MainAdapter(int layoutResId, @Nullable List<MainBean> data , Context context) {
         super(layoutResId, data);
         contextReference = new WeakReference<>(context);
     }
