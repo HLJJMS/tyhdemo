@@ -78,9 +78,7 @@ public class DownLoadBigFileActivity extends AppCompatActivity {
             @Override
             public void accept(Boolean aBoolean) throws Exception {
                 if (aBoolean) {
-                    startService(new Intent(context, DownLoadIntentService.class));
-//                    file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + testName);
-//                    xiaziWenjian();
+
                 } else {
                     Toast.makeText(context, "无权限", Toast.LENGTH_LONG).show();
                 }

@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("流式布局", FlowLayoutActivity.class));
         list.add(new MainBean("EditTextInput监听器", InputFilterActivity.class));
         list.add(new MainBean("web缓存", WebActivity.class));
+        list.add(new MainBean("多ITEM的RecyclerView", MoreItemActivity.class));
         adapter = new MainAdapter(R.layout.item_main, list, context);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
