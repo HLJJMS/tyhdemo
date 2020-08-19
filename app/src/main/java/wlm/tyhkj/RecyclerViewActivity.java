@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import wlm.adapter.RecyclerAdapter;
 
 /**
@@ -41,7 +41,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyclerview);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         context = this;
         setList();

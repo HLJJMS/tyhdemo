@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import wlm.adapter.MoreItemAdapter;
 import wlm.bean.MoreItemBean;
 
 public class MoreItemActivity extends AppCompatActivity {
 
-    @InjectView(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     List<MoreItemBean> list = new ArrayList<>();
     MoreItemAdapter adapter;
@@ -24,7 +24,7 @@ public class MoreItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_item);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         list.add(new MoreItemBean(0, "第一"));
         list.add(new MoreItemBean(1, "第2"));
         list.add(new MoreItemBean(1, "第3"));

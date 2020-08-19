@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -28,13 +28,13 @@ import okhttp3.Response;
 import wlm.diyview.DonwTimerView;
 
 public class OkHttpActivity extends AppCompatActivity {
-    @InjectView(R.id.hundle)
+    @BindView(R.id.hundle)
     TextView hundle;
-    @InjectView(R.id.hundleGoodOk)
+    @BindView(R.id.hundleGoodOk)
     TextView hundleGoodOk;
-    @InjectView(R.id.post)
+    @BindView(R.id.post)
     TextView post;
-    @InjectView(R.id.click)
+    @BindView(R.id.click)
     DonwTimerView click;
     private Message messageOk;
     private String url = "http://tst.zhongqizhiyun.com:8020/api/WXOnlineAppApi/A001GetPersonalInf?UserCode=CN000054";
@@ -45,7 +45,7 @@ public class OkHttpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ok_http);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         click.setTimeTotalAndTimeSpace(120,1000);
     }
 

@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import wlm.adapter.ViewPageAdapter;
 
 public class ViewPageActivity extends AppCompatActivity {
 
-    @InjectView(R.id.viewpage)
+    @BindView(R.id.viewpage)
     ViewPager viewpage;
-    @InjectView(R.id.point)
+    @BindView(R.id.point)
     LinearLayout point;
     private ImageView photo1, photo2, photo3, photo4, photo5, pointImg;
     private View view1, view2, view3;
@@ -35,7 +35,7 @@ public class ViewPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_page);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         LayoutInflater layoutInflater = getLayoutInflater();
         viewXml(layoutInflater);
         ImgView();

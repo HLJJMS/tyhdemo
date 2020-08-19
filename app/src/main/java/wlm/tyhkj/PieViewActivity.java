@@ -10,20 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import wlm.bean.PieBean;
 import wlm.diyview.PieView;
 
 public class PieViewActivity extends AppCompatActivity {
 
-    @InjectView(R.id.pie_view)
+    @BindView(R.id.pie_view)
     PieView pieView;
     private List<PieBean> list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pie_view);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         setData();
     }
 

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import wlm.adapter.ZqzyAdapter;
 import wlm.adapter.ZqzyBean;
 
 public class ZqzyListActivity extends AppCompatActivity {
-    @InjectView(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     private List<ZqzyBean> list = new ArrayList<>();
     ZqzyAdapter adapter = new ZqzyAdapter();
@@ -23,7 +23,7 @@ public class ZqzyListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zqzy_list);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         intdata();
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);

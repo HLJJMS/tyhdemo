@@ -11,19 +11,19 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class WebActivity extends AppCompatActivity {
 
 
-    @InjectView(R.id.web)
+    @BindView(R.id.web)
     WebView web;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         WebSettings webSettings = web.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setPluginState(WebSettings.PluginState.ON);

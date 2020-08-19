@@ -14,19 +14,19 @@ import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class QQBrowserActivity extends AppCompatActivity {
 
 
-    @InjectView(R.id.forum_context)
+    @BindView(R.id.forum_context)
     WebView forumContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qqbrowser);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getWindow().setFormat(PixelFormat.TRANSLUCENT);

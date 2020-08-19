@@ -10,17 +10,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class HandlerActivity extends AppCompatActivity {
 
 
-    @InjectView(R.id.starthandler)
+    @BindView(R.id.starthandler)
     TextView starthandler;
-    @InjectView(R.id.endhandler)
+    @BindView(R.id.endhandler)
     TextView endhandler;
-    @InjectView(R.id.num)
+    @BindView(R.id.num)
     TextView num;
     private Boolean flag = true;
     private Thread myThread;
@@ -29,7 +29,7 @@ public class HandlerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_handler);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         myThread = new Thread(new MyThread());
     }

@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;;
 import android.webkit.WebView;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class WebViewH5CodeActivity extends AppCompatActivity {
 
-    @InjectView(R.id.wvIntroduce)
+    @BindView(R.id.wvIntroduce)
     WebView wvIntroduce;
     StringBuilder sb = new StringBuilder();
     String a = "<p>\n" +
@@ -47,7 +47,7 @@ public class WebViewH5CodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view_h5_code);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         sb.append("<html>");
         sb.append("<head>");
         sb.append("<title>Our Love</title>");

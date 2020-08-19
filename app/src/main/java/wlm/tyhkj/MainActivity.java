@@ -24,18 +24,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import wlm.adapter.MainAdapter;
 import wlm.base.BannerLoadImage;
 import wlm.bean.MainBean;
 
 public class MainActivity extends AppCompatActivity {
-    @InjectView(R.id.recyclerView)
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     MainAdapter adapter;
     List<MainBean> list = new ArrayList<>();
     Context context;
-    @InjectView(R.id.banner)
+    @BindView(R.id.banner)
     Banner banner;
     List<String> bannerList = new ArrayList<>();
     List<String> titleList = new ArrayList<>();
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         context = this;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         aboutBanner();

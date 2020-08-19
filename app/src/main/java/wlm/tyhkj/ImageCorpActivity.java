@@ -7,22 +7,22 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import per.goweii.cropimageview.CropImageView;
 
 public class ImageCorpActivity extends AppCompatActivity {
 
-    @InjectView(R.id.ok)
+    @BindView(R.id.ok)
     TextView ok;
-    @InjectView(R.id.img)
+    @BindView(R.id.img)
     CropImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_corp);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         img.setImageResource(R.drawable.laoniu);
 

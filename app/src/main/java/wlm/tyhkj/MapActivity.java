@@ -23,7 +23,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import wlm.base.PermissionDynamic;
 
@@ -48,7 +48,7 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_map);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         mSearch = RoutePlanSearch.newInstance();
         mLocationClient = new LocationClient(getApplicationContext());

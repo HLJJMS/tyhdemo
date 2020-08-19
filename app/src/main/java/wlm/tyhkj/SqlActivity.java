@@ -6,21 +6,21 @@ import android.view.View;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import wlm.base.TestDB;
 
 public class SqlActivity extends AppCompatActivity {
 
-    @InjectView(R.id.add)
+    @BindView(R.id.add)
     TextView add;
-    @InjectView(R.id.read)
+    @BindView(R.id.read)
     TextView read;
-    @InjectView(R.id.tv_result)
+    @BindView(R.id.tv_result)
     TextView tvResult;
-    @InjectView(R.id.tv_updata)
+    @BindView(R.id.tv_updata)
     TextView tvUpdata;
-    @InjectView(R.id.tv_deldata)
+    @BindView(R.id.tv_deldata)
     TextView tvDeldata;
     private TestDB db;
 
@@ -28,7 +28,7 @@ public class SqlActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sql);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         db = new TestDB(this);
     }
 

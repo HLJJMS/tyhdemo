@@ -14,7 +14,6 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -25,42 +24,41 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import wlm.adapter.CommentAdapter;
 import wlm.adapter.CommentBean;
 
 public class CommentActivity extends AppCompatActivity {
 
-    @InjectView(R.id.title)
+    @BindView(R.id.title)
     TextView title;
-    @InjectView(R.id.recycler)
+    @BindView(R.id.recycler)
     RecyclerView recycler;
-    @InjectView(R.id.input_txt)
+    @BindView(R.id.input_txt)
     TextView inputTxt;
-    @InjectView(R.id.img_comment)
+    @BindView(R.id.img_comment)
     ImageView imgComment;
-    @InjectView(R.id.txt_comment_int)
+    @BindView(R.id.txt_comment_int)
     TextView txtCommentInt;
-    @InjectView(R.id.img_good)
+    @BindView(R.id.img_good)
     ImageView imgGood;
-    @InjectView(R.id.txt_good_int)
+    @BindView(R.id.txt_good_int)
     TextView txtGoodInt;
     CommentAdapter adapter;
     List<CommentBean> list = new ArrayList<>();
     String inputText;
     int page = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         list.add(new CommentBean(0, "小明", "来我家玩"));
         list.add(new CommentBean(0, "小刚", "asdsadsadsaxzcxzcz"));
         list.add(new CommentBean(1, "小李", "来我家玩"));
@@ -98,10 +96,10 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private void addSomeThing() {
-        if (page<4){
+        if (page < 4) {
             adapter.addData(list);
             adapter.loadMoreComplete();
-        }else{
+        } else {
             adapter.loadMoreEnd();
         }
 

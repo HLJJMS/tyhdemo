@@ -27,7 +27,7 @@ import com.tencent.android.tpush.common.Constants;
 import java.lang.ref.WeakReference;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 import static io.realm.internal.SyncObjectServerFacade.getApplicationContext;
@@ -36,11 +36,11 @@ public class NotificationActivity extends AppCompatActivity {
 
 
     Context context;
-    @InjectView(R.id.start)
+    @BindView(R.id.start)
     TextView start;
-    @InjectView(R.id.end)
+    @BindView(R.id.end)
     TextView end;
-    @InjectView(R.id.xg)
+    @BindView(R.id.xg)
     TextView xg;
     private Message m;
 
@@ -49,7 +49,7 @@ public class NotificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         context = this;
         Handler handler = new HandlerExtension(NotificationActivity.this);

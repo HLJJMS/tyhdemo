@@ -25,7 +25,7 @@ import java.io.OutputStream;
 import java.util.concurrent.Executors;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import io.reactivex.functions.Consumer;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -47,14 +47,14 @@ public class DownLoadBigFileActivity extends AppCompatActivity {
     Context context;
     RxPermissions rxPermissions;
     String url = "http://bos.pgzs.com/wscdn/assistant/wyx/pc/91assistant_pc_v6_1_201904121018111.exe";
-    @InjectView(R.id.txt)
+    @BindView(R.id.txt)
     TextView txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_down_load_big_file);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         testName = url.substring(url.lastIndexOf("/")).split("/")[1];//不带"/"
         Log.e("文件名称", testName);
         context = this;

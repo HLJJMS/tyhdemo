@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,18 +43,18 @@ public class FileUpLoadActivity extends AppCompatActivity {
 
 
     String path;
-    @InjectView(R.id.url)
+    @BindView(R.id.url)
     TextView url;
-    @InjectView(R.id.ok)
+    @BindView(R.id.ok)
     TextView ok;
-    @InjectView(R.id.power)
+    @BindView(R.id.power)
     TextView power;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_up_load);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         context = getApplicationContext();
         click();

@@ -14,18 +14,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import wlm.diyview.GlideCircleWithBorder;
 
 public class PhotoActivity extends AppCompatActivity {
 
-    @InjectView(R.id.webview)
+    @BindView(R.id.webview)
     TextView webview;
-    @InjectView(R.id.photo_base)
+    @BindView(R.id.photo_base)
     ImageView photoBase;
-    @InjectView(R.id.photo_gif)
+    @BindView(R.id.photo_gif)
     ImageView photoGif;
-    @InjectView(R.id.photo_round)
+    @BindView(R.id.photo_round)
     ImageView photoRound;
     private String gif = "http://www.ghost64.com/qqtupian/zixunImg/local/2017/04/14/14921486513726.gif";
     private String url = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537155629&di=3683860420fb9cbd0b9e7f921983ae40&imgtype=jpg&er=1&src=http%3A%2F%2Fpic21.nipic.com%2F20120511%2F5989071_175938732319_2.jpg";
@@ -37,7 +37,7 @@ public class PhotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         photo();
         roundPhoto();
     }

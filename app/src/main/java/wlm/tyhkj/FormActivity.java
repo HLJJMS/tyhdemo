@@ -37,7 +37,7 @@ public class FormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         table = (SmartTable<Form.MyDynamicDataBean>) findViewById(R.id.table);
         table.getConfig().setContentCellBackgroundFormat(new BaseCellBackgroundFormat<CellInfo>() {
             @Override
