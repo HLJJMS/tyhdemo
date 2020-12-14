@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.youth.banner.Banner;
 import com.youth.banner.config.BannerConfig;
 import com.youth.banner.config.IndicatorConfig;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     List<String> titleList = new ArrayList<>();
     MyBeannerAdapter beannerAdapter;
     List<BannerBean> bannerBeans = new ArrayList<>();
-
+    StandardGSYVideoPlayer videoPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +61,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         context = this;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
-
-        String path = "https://www.w3school.com.cn//i/movie.ogg";
-
+        videoPlayer = findViewById(R.id.ad_player);
+        String path = "http://mp3.9ku.com/mp3/416/415479.mp3";
+        videoPlayer.setUp(path,true,"");
+        videoPlayer.startPlayLogic();
         palyMp3();
         aboutBanner();
         aboutRecycler();
@@ -70,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void aboutRecycler() {
-
         list.add(new MainBean("RecyclerView老版本", RecyclerViewActivity.class));
         list.add(new MainBean("Android原生侧滑布局", DnActivity.class));
         list.add(new MainBean("百度地图", MapActivity.class));
@@ -139,15 +140,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     private String getDeviceInfo() {
         StringBuffer sb = new StringBuffer();
