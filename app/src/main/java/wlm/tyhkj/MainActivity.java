@@ -2,31 +2,41 @@ package wlm.tyhkj;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.listener.OnBannerListener;
+import com.youth.banner.config.BannerConfig;
+import com.youth.banner.config.IndicatorConfig;
+import com.youth.banner.indicator.CircleIndicator;
+import com.youth.banner.util.BannerUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import cn.jzvd.JzvdStd;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import wlm.adapter.MainAdapter;
-import wlm.base.BannerLoadImage;
+import wlm.adapter.MyBeannerAdapter;
+import wlm.base.BannerBean;
 import wlm.bean.MainBean;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     Banner banner;
     List<String> bannerList = new ArrayList<>();
     List<String> titleList = new ArrayList<>();
+    MyBeannerAdapter beannerAdapter;
+    List<BannerBean> bannerBeans = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +60,13 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         context = this;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+
+        String path = "https://www.w3school.com.cn//i/movie.ogg";
+
+        palyMp3();
         aboutBanner();
         aboutRecycler();
-        Log.e("设备信息",getDeviceInfo());
+        Log.e("设备信息", getDeviceInfo());
     }
 
     private void aboutRecycler() {
@@ -91,20 +108,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void aboutBanner() {
-        bannerList.add("https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1562745599&di=7f3906730091a19e20d1281e15e3aadf&src=http://www.qqoi.cn/img_bizhi/245213297.jpeg");
-        bannerList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562755694181&di=9cf7bd721728d9dfc1aa3ae66ce14315&imgtype=0&src=http%3A%2F%2Fimg.tukexw.com%2Fimg%2Fba2d83aaf5371864.jpg");
-        bannerList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562755694181&di=5029f7203a910ab388f3be3a789f9381&imgtype=0&src=http%3A%2F%2Ffile.mumayi.com%2Fforum%2F201503%2F27%2F231530y62twcwttsww2qdk.jpg");
-        bannerList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562755694180&di=51ff7f29c13e93ff5f618ab7cf73d808&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fb%2F579181e901c9b.jpg");
-        titleList.add("秋水共长天一色");
-        titleList.add("长河落日圆");
-        titleList.add("千里冰封");
-        titleList.add("长白山天池");
-        banner.setImageLoader(new BannerLoadImage()).isAutoPlay(true).setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE).setImages(bannerList).setBannerTitles(titleList).start().setOnBannerListener(new OnBannerListener() {
+        bannerBeans.add(new BannerBean("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=375087272,1081250310&fm=26&gp=0.jpg", "春水共长天一色"));
+        bannerBeans.add(new BannerBean("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=12753096,4218245377&fm=26&gp=0.jpg", "夏水共长天一色"));
+        bannerBeans.add(new BannerBean("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2509171365,1603162426&fm=26&gp=0.jpg", "秋水共长天一色"));
+        bannerBeans.add(new BannerBean("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2140150566,4154407186&fm=26&gp=0.jpg", "冬水共长天一色"));
+        MyBeannerAdapter myBeannerAdapter = new MyBeannerAdapter(bannerBeans, context);
+        banner.setAdapter(myBeannerAdapter);
+        banner.setIndicator(new CircleIndicator(this));
+        banner.setIndicatorGravity(IndicatorConfig.Direction.RIGHT);
+        banner.setIndicatorMargins(new IndicatorConfig.Margins(0, 0,
+                BannerConfig.INDICATOR_MARGIN, (int) BannerUtils.dp2px(12)));
+        myBeannerAdapter.setOnClickItemListener(new MyBeannerAdapter.OnClickItemListener() {
             @Override
-            public void OnBannerClick(int position) {
+            public void clickItemListener(String url) {
                 final Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(bannerList.get(position)));
+                intent.setData(Uri.parse(url));
                 if (intent.resolveActivity(getPackageManager()) == null) {
                     Toast.makeText(getApplicationContext(), "没有匹配的程序", Toast.LENGTH_SHORT).show();
                 } else {
@@ -113,20 +132,20 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        //开始轮播
-        banner.startAutoPlay();
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        //结束轮播
-        banner.stopAutoPlay();
+
     }
 
 
@@ -155,6 +174,18 @@ public class MainActivity extends AppCompatActivity {
         return sb.toString();
     }
 
+    private void palyMp3() {
+        Uri uri = Uri.parse("http://mp3.9ku.com/mp3/416/415479.mp3");
+        MediaPlayer player = new MediaPlayer();
+        try {
+            player.setDataSource(this, uri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        player.setVolume(1, 1);//配置音量
+        player.setLooping(false);//是否循环
+        player.prepareAsync();
 
+    }
 
 }

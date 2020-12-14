@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "wlm.tyhkj"
 //        applicationId "com.tyh.tyhkj"
-        minSdkVersion 17
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "2"
@@ -116,10 +116,20 @@ dependencies {
     implementation 'com.qmuiteam:qmui:1.2.0'
 
 //轮播图
-    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'com.youth.banner:banner:2.1.0'
 
     // 选择器
     implementation 'com.contrarywind:Android-PickerView:4.1.8'
 
+    implementation 'com.shuyu:gsyVideoPlayer-java:8.0.0'
 
+//是否需要ExoPlayer模式
+    implementation 'com.shuyu:GSYVideoPlayer-exo2:8.0.0'
+
+//根据你的需求ijk模式的so
+    implementation 'com.shuyu:gsyVideoPlayer-armv5:8.0.0'
+    implementation 'com.shuyu:gsyVideoPlayer-armv7a:8.0.0'
+    implementation 'com.shuyu:gsyVideoPlayer-arm64:8.0.0'
+    implementation 'com.shuyu:gsyVideoPlayer-x64:8.0.0'
+    implementation 'com.shuyu:gsyVideoPlayer-x86:8.0.0'
 }
