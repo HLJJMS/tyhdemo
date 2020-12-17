@@ -97,21 +97,7 @@ public class ViewPageActivity extends AppCompatActivity {
     }
 
     private void ImgView() {
-        photo2 = new ImageView(this);
-        photo3 = new ImageView(this);
-        photo1 = new ImageView(this);
-        photo4 = new ImageView(this);
-        photo5 = new ImageView(this);
-        photo1.setImageResource(R.drawable.caocao);
-        photo2.setImageResource(R.drawable.huamulan);
-        photo3.setImageResource(R.drawable.laoniu);
-        photo4.setImageResource(R.drawable.wuzang);
-        photo5.setImageResource(R.drawable.duantui);
-        imgList.add(photo1);
-        imgList.add(photo2);
-        imgList.add(photo3);
-        imgList.add(photo4);
-        imgList.add(photo5);
+
 
     }
 

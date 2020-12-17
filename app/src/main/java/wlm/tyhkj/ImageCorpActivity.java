@@ -24,7 +24,7 @@ public class ImageCorpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_corp);
         ButterKnife.bind(this);
 
-        img.setImageResource(R.drawable.laoniu);
+
 
 
     }

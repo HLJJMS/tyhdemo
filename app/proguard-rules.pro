@@ -53,12 +53,8 @@
     		-keep public class * extends android.content.ContentProvider
     		-keep public class * extends android.app.backup.BackupAgentHelper
     		-keep public class * extends android.preference.Preference
-    		-keep public class com.android.vending.licensing.ILicensingService
-    		#如果有引用v4包可以添加下面这行
-    		-keep public class * extends android.support.v4.app.Fragment
 
-    		#忽略警告
-    		-ignorewarning
+
 
     		##记录生成的日志数据,gradle build时在本项目根目录输出##
 
@@ -82,20 +78,20 @@
     		#-libraryjars libs/sdk-v1.0.0.jar
     		#-libraryjars libs/look-v1.0.1.jar
 
-    		#如果不想混淆 keep 掉
-    		-keep class com.lippi.recorder.iirfilterdesigner.** {*; }
     		#项目特殊处理代码
 
     		#忽略警告
     		-dontwarn com.lippi.recorder.utils**
     		#保留一个完整的包
-    		-keep class com.lippi.recorder.utils.** {
-    		    *;
-    		 }
+    		-keep class wlm.DownLoadIntentService.*
 
-    		-keep class  com.lippi.recorder.utils.AudioRecorder{*;}
+    		-keep class  wlm.diyview.*
 
+	        -keep class  wlm.bean.*
 
+	        -keep class  wlm.base.*
+
+	        -keep class  wlm.adapter.*
     		#如果引用了v4或者v7包
     		-dontwarn android.support.**
 
@@ -163,6 +159,133 @@
     		-keepclassmembers class **.R$* {
     		    public static <fields>;
     		}
-    		-keep class com.baidu.** {*;}
-            -keep class mapsdkvi.com.** {*;}
-            -dontwarn com.baidu.**
+    		-keepclassmembers class fqcn.of.javascript.interface.for.Webview {
+              public *;
+            }
+            -keepclassmembers class * extends android.webkit.WebViewClient {
+              public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
+              public boolean *(android.webkit.WebView, java.lang.String);
+            }
+            -keepclassmembers class * extends android.webkit.WebViewClient {
+              public void *(android.webkit.WebView, jav.lang.String);
+            }
+#fastjson
+-keepnames class * implements  java.io.Serializable
+-keep public class * implements  java.io.Serializable {
+   public *;
+}
+-keepclassmembers class * implements  java.io.Serializable {
+    static final long serialVersionUID;
+    private static final  java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject( java.io.ObjectOutputStream);
+    private void readObject( java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+# FastJson 混淆代码
+-dontwarn com.alibaba.fastjson.**
+-keep class com.alibaba.fastjson.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+#Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+ **[] $VALUES;
+ public *;
+}
+
+#okhttp
+-dontwarn okio.**
+-keep class okio.**{*;}
+-keep interface okio.**{*;}
+-dontwarn okhttp3.**
+-keep class okhttp3.**{*;}
+-keep interface okhttp3.**{*;}
+
+#Rxjava
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+  long producerIndex;
+  long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+  rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+  rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+##--------------- Gson ----------
+# Prevent proguard from stripping interface information from TypeAdapterFactory,
+# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# Prevent R8 from leaving Data object members always null
+-keepclassmembers,allowobfuscation class * {
+  @com.google.gson.annotations.SerializedName <fields>;
+}
+##--------------- Gson ----------
+#retrofit
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keep public class * extends retrofit2.Converter {*;}
+#baidu
+-keep class com.baidu.** {*;}
+-keep class vi.com.** {*;}
+-dontwarn com.baidu.**
+
+##################################信鸽######################################
+-keep class com.tencent.android.tpush.** {* ;}
+-keep class com.tencent.mid.** {* ;}
+-keep class com.qq.taf.** {*;}
+-keep public class * extends com.qq.taf.jce.JceStruct{*;}
+
+##--------------- JzVD ----------
+-keep public class cn.jzvd.JZMediaSystem {*; }
+-keep public class cn.jzvd.demo.CustomMedia.CustomMedia {*; }
+-keep public class cn.jzvd.demo.CustomMedia.JZMediaIjk {*; }
+-keep public class cn.jzvd.demo.CustomMedia.JZMediaSystemAssertFolder {*; }
+
+-keep class tv.danmaku.ijk.media.player.** {*; }
+-dontwarn tv.danmaku.ijk.media.player.*
+-keep interface tv.danmaku.ijk.media.player.** { *; }
+##--------------- JzVD ----------
+
+##--------------- QmUi ----------
+-keep class **_FragmentFinder { *; }
+-keep class androidx.fragment.app.* { *; }
+
+-keep class com.qmuiteam.qmui.arch.record.RecordIdClassMap { *; }
+-keep class com.qmuiteam.qmui.arch.record.RecordIdClassMapImpl { *; }
+
+-keep class com.qmuiteam.qmui.arch.scheme.SchemeMap {*;}
+-keep class com.qmuiteam.qmui.arch.scheme.SchemeMapImpl {*;}
+##--------------- QmUi ----------
+##--------------- EventBus ----------
+-keep class org.simple.** { *;}
+-keep interface org.simple.** { *;}
+-keepclassmembers class * {
+    @org.simple.eventbus.Subscriber <methods>;
+}
+##--------------- EventBus ----------
+
+#gsyvideoplayer
+-keep class com.shuyu.gsyvideoplayer.video.** { *; }
+-dontwarn com.shuyu.gsyvideoplayer.video.**
+-keep class com.shuyu.gsyvideoplayer.video.base.** { *; }
+-dontwarn com.shuyu.gsyvideoplayer.video.base.**
+-keep class com.shuyu.gsyvideoplayer.utils.** { *; }
+-dontwarn com.shuyu.gsyvideoplayer.utils.**
+-keep class tv.danmaku.ijk.** { *; }
+-dontwarn tv.danmaku.ijk.**
+
+-keep public class * extends android.view.View{
+    *** get*();
+    void set*(***);
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
