@@ -1,10 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
 realm {
     syncEnabled = true;
 }
-
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 android {
 
     compileSdkVersion 28
@@ -54,6 +56,16 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+configurations {
+    cleanedAnnotations
+    compile.exclude group: 'org.jetbrains' , module:'annotations'
 }
 repositories {
     mavenCentral()
@@ -64,6 +76,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     implementation 'com.google.android.material:material:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.wear:wear:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -133,4 +147,5 @@ dependencies {
     implementation 'com.shuyu:gsyVideoPlayer-arm64:8.0.0'
     implementation 'com.shuyu:gsyVideoPlayer-x64:8.0.0'
     implementation 'com.shuyu:gsyVideoPlayer-x86:8.0.0'
+    compileOnly 'com.google.android.wearable:wearable:2.6.0'
 }
